@@ -9,14 +9,23 @@ Exercice 1
 Exercice 2
 
 1. telechargement des images:
+
 docker pull mysql:8.0.28
+
 docker pull makouz/tuto_backend:1.0.0
+
 docker pull makouz/tuto_front:1.0.0
 
+
 2. Création de network:
+
 docker network create networkExam
 
-3. Lancement des conteneur
+3. Lancement des conteneur:
+
 docker run -d -p 2222:8080 --network networkExam --name backend makouz/tuto_backend:1.0.0
+
 docker run -d -p 8088:80 --network networkExam --name frontend makouz/tuto_front:1.0.0
+
 docker run -d  --network networkExam --name mysql -v ./mysql:/var/lib/mysql  -e MYSQL_DATABASE=testdb mysql:8.0.28
+
