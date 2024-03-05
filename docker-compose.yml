@@ -1,0 +1,25 @@
+version: '3'
+services: 
+  backend:
+    build: 
+      context: .
+    ports:
+      - "2222:8080"
+  frontend:
+    build: 
+      context: .
+    ports:
+      - "8088:80"
+  mysql:
+    build: .
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3307:3307"
+
+  environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      MYSQL_DB: testdb
+            
